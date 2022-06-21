@@ -47,6 +47,34 @@ for(let i = 0; i < 48; i++){
   // images.push(`assets/glyphs/glyphs_${i}_.png`)
 }
 
+const sec5_images = []
+
+var sec5animprogress = 24;
+
+//sleep function by miliseconds
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function sec5anim() {
+  let animtime = 24
+  let animframes = 96;
+  for(let i = 0; i < 24; i++){
+    sec5animprogress = (sec5animprogress + 1) % animframes;
+    let element = document.querySelector("#sec5-viewer");
+    element.parentNode.replaceChild(sec5_images[sec5animprogress], element)
+    await sleep(24);
+  }
+}
+
+for(let i = 0; i < 96; i++){
+  sec5_images[i] = new Image();
+  sec5_images[i].id = "sec5-viewer"
+  sec5_images[i].src = `assets/b-kudlit/frame_${i}_.png`;
+  //onclick of sec5viewer
+  sec5_images[i].addEventListener("click", sec5anim)
+}
+
 document.addEventListener("DOMContentLoaded", function(event) {
     // you could also use addEventListener() instead
   window.onload = function() {
@@ -56,11 +84,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
     for (let scroller of scrolls) {
       //randomize background position x 
       let dir = Math.random() < 0.5 ? -1 : 1;
-      scroller.style.backgroundPositionX = `${gsap.utils.random(0, 853)}px`;
+      scroller.style.backgroundPositionX = `${gsap.utils.random(0, 863)}px`;
       scroller.style.top = `${offsetY}px`;
       offsetY += 90;
       gsap.to(scroller, {
-        backgroundPositionX: `+=${853 * dir}px`,
+        backgroundPositionX: `+=${863 * dir}px`,
         duration: gsap.utils.random(40, 80),
         ease:Linear.easeNone,
         repeat: -1,

@@ -6,6 +6,21 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Poppins';
+  src: url('fonts/Poppins-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('fonts/Poppins-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
 
 html, body {
   margin: 0;
@@ -169,6 +184,7 @@ img {
   padding: 60px;
   text-align: center;
   padding-top: 0px;
+  padding-bottom: 0px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -186,6 +202,52 @@ img {
   background-repeat: no-repeat;
   background-size: auto 391px;
   background-position: 0px 0px; */
+}
+
+.sec5 {
+  position: relative;
+  display: flex;
+  width: auto;
+  height: auto;
+  background-color: #990000;
+  color: rgb(255, 255, 255);
+  overflow-y: hidden;
+  overflow-x: hidden;
+  padding: 60px;
+  text-align: center;
+  padding-top: 40px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.sec5-left {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.sec5-right {
+  position: relative;
+  display: flex;
+  flex: 1;
+  padding: 60px;
+}
+
+#sec5-viewer{
+  position: relative;
+  /* height: 391px; */
+  width: 150px;
+}
+
+#sec5-sign{
+  position: absolute;
+  transform: translate(80%, -40%) rotateZ(350deg);
+  /* height: 391px; */
+  width: 100px;
 }
 
 .footer {
@@ -254,9 +316,18 @@ img {
 
 .sec-nil {
   position: relative;
-  width: 100vw;
-  height: 100vh;
-  background-color: #F3BE00;
+  width: auto;
+  height: auto;
+  background-color: #990000;
+  color: rgb(255, 255, 255);
+  overflow-y: hidden;
+  overflow-x: hidden;
+  padding: 0px;
+  padding-bottom: 40px;
+  text-align: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .scrollerbody {
@@ -285,12 +356,12 @@ img {
   /* background-color: none; */
 
   width: 100vw;
-  height: 100px;
+  height: 103px;
   backface-visibility: hidden;
   background-image: url("assets/bay.svg");
   background-repeat: repeat-x;
   background-position: left;
-  background-size: 853px;
+  background-size: 863px;
   background-position-x: 0px;
   opacity: 50%;
 }
