@@ -72,6 +72,7 @@ img {
   overflow-x: hidden;
   padding-top: 30px;
   padding-bottom: 50px;
+  flex-wrap: wrap;
 }
 
 .sec2-left {
@@ -250,6 +251,23 @@ img {
   width: 100px;
 }
 
+.sec6 {
+  position: relative;
+  display: flex;
+  width: auto;
+  height: auto;
+  background-color: #F1F1F1;
+  color: rgb(255, 255, 255);
+  overflow-y: hidden;
+  overflow-x: hidden;
+  padding: 60px;
+  text-align: center;
+  padding-top: 40px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 .footer {
   position: relative;
   display: flex;
@@ -410,7 +428,19 @@ img {
   align-items: center;
 }
 
+#Layer_1 {
+  transform: translate(-500px, -200px);
+  fill: white;
+  color: red;
+}
 
+#map-m1, #map-m2, #map-m3, #map-m4, #map-m5, #map-m6, #map-m7, #map-m8, #map-m9, #map-m10  {
+  fill: #acacac;
+}
+
+#map-l1, #map-l2, #map-l3, #map-l4, #map-l5, #map-l6, #map-l7, #map-l8, #map-l9, #map-l10, #map-l11, #map-l12 {
+  fill: #acacac;
+}
 
 
 

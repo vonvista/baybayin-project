@@ -50,6 +50,7 @@ for(let i = 0; i < 48; i++){
 const sec5_images = []
 
 var sec5animprogress = 24;
+var sec5text = 0;
 
 //sleep function by miliseconds
 function sleep(ms) {
@@ -59,6 +60,21 @@ function sleep(ms) {
 async function sec5anim() {
   let animtime = 24
   let animframes = 96;
+
+  gsap.to(`#sec5-m${sec5text}`, {
+    duration: 1,
+    color: "#FFFFFF",
+    ease: "circ.out",
+  })
+
+  sec5text = (sec5text + 1) % 4
+
+  gsap.to(`#sec5-m${sec5text}`, {
+    duration: 1,
+    color: "#F3BE00",
+    ease: "circ.out",
+  })
+
   for(let i = 0; i < 24; i++){
     sec5animprogress = (sec5animprogress + 1) % animframes;
     let element = document.querySelector("#sec5-viewer");
@@ -115,6 +131,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
       duration: 2, 
       ease: "circ.out"
     }, "<50%");
+
+    //test 
 
     intro.play();
 
@@ -252,6 +270,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     //   },
     //   duration: 3,
     // });
+    
 
     gsap.to("#sec4-viewer", {
       
@@ -272,6 +291,59 @@ document.addEventListener("DOMContentLoaded", function(event) {
         
       },
     })
+
+    function mapAssignHelper(mapPart, langPart, mapColor) {
+      document.querySelector(mapPart).addEventListener("mouseover", () => {
+        gsap.to(mapPart,{
+          duration: 1,
+          fill: mapColor,
+          ease: "circ.out",
+        })
+        gsap.to(langPart,{
+          duration: 1,
+          fill: mapColor,
+          ease: "circ.out",
+        })
+      
+      })
+      document.querySelector(mapPart).addEventListener("mouseleave", () => {
+        gsap.to(mapPart,{
+          duration: 1,
+          fill: "#ACACAC",
+          ease: "circ.out",
+        })
+        gsap.to(langPart,{
+          duration: 1,
+          fill: "#ACACAC",
+          ease: "circ.out",
+        })
+      
+      })
+
+    }
+
+    function mapAssign(mapPart, langPart, mapColor) {
+      mapAssignHelper(mapPart, langPart, mapColor)
+      mapAssignHelper(langPart, mapPart, mapColor)
+    }
+
+    mapAssign("#map-l11", "#map-m1", "#0D005C")
+    mapAssign("#map-l6", "#map-m9", "#0D005C")
+    mapAssign("#map-l12", "#map-m8", "#0D005C")
+    mapAssign("#map-l7", "#map-m2", "#0D005C")
+    mapAssign("#map-l7", "#map-m3", "#0D005C")
+    mapAssign("#map-l1", "#map-m4", "#0D005C")
+    mapAssign("#map-l5", "#map-m5", "#0D005C")
+    mapAssign("#map-l8", "#map-m6", "#0D005C")
+    mapAssign("#map-l4", "#map-m7", "#0D005C")
+    mapAssign("#map-l9", "#map-m10", "#0D005C")
+    // document.querySelector("#map-l1").addEventListener("mouseover", () => {
+    //   gsap.to("#map-l1",{
+    //     duration: 1,
+    //     fill: "#ffffff",
+    //   })
+    
+    // })
 
     gsap.to(".scroller-footer", {
       backgroundPositionX: "+=853px",
