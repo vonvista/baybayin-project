@@ -255,6 +255,7 @@ img {
   display: flex;
   flex: 1;
   padding: 60px;
+  z-index:2;
 }
 
 #sec5-viewer{
@@ -470,10 +471,12 @@ img {
   align-items: center;
 }
 
-#Layer_1 {
-  transform: translate(-500px, -200px);
-  fill: white;
-  color: red;
+.baybayin-circle {
+  position: absolute;
+  width: 500px;
+  opacity: 20%;
+  color: #ffffff;
+  pointer-events: none;
 }
 
 #map-m1, #map-m2, #map-m3, #map-m4, #map-m5, #map-m6, #map-m7, #map-m8, #map-m9, #map-m10  {

@@ -136,6 +136,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     intro.play();
 
+    gsap.to(".baybayin-circle", {
+      duration: 80,
+      rotation: 360,
+      repeat: -1,
+      ease: "none",
+    })
+
+
     let scrollers = document.querySelectorAll(".scrollerbody");
     for (let scroller of scrollers) {
       //randomize background position x 
@@ -226,8 +234,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     var frame_count = 47,
     offset_value = 1000;
-
-    console.log(images)
 
     // gsap.to("#sec4-viewer", {
     //   num: frame_count,
