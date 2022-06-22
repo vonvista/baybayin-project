@@ -196,7 +196,6 @@ img {
   color: rgb(255, 255, 255);
   overflow-y: hidden;
   overflow-x: hidden;
-  padding: 60px;
   text-align: center;
   padding-top: 0px;
   padding-bottom: 0px;
@@ -217,6 +216,12 @@ img {
   background-repeat: no-repeat;
   background-size: auto 391px;
   background-position: 0px 0px; */
+}
+
+#sec4-content{
+  position: relative;
+  /* height: 391px; */
+  padding: 0px 30px;
 }
 
 .sec5 {
