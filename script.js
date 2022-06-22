@@ -292,7 +292,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
       },
     })
 
-    function mapAssignHelper(mapPart, langPart, mapColor) {
+    let sec6info = document.getElementById("sec6-info")
+    function mapAssignHelper(mapPart, langPart, mapColor, info) {
       document.querySelector(mapPart).addEventListener("mouseover", () => {
         gsap.to(mapPart,{
           duration: 1,
@@ -304,39 +305,79 @@ document.addEventListener("DOMContentLoaded", function(event) {
           fill: mapColor,
           ease: "circ.out",
         })
-      
+        gsap.to("#sec6-info",{
+          duration: 1,
+          ease: "circ.out",
+        })
+        let infotl = gsap.timeline()
+        infotl.to("#sec6-info",{
+          duration: 0.5,
+          opacity: 0,
+          ease: "circ.inOut",
+        })
+        infotl.call(() =>{
+          sec6info.innerText = info
+        })
+        infotl.to("#sec6-info",{
+          duration: 0,
+          y: "-20",
+        }, ">")
+        infotl.to("#sec6-info",{
+          duration: 0.5,
+          y: "0",
+          opacity: 1,
+          ease: "circ.inOut",
+        }, ">")
       })
       document.querySelector(mapPart).addEventListener("mouseleave", () => {
         gsap.to(mapPart,{
           duration: 1,
           fill: "#ACACAC",
-          ease: "circ.out",
+          ease: "circ.inOut",
         })
         gsap.to(langPart,{
           duration: 1,
           fill: "#ACACAC",
-          ease: "circ.out",
+          ease: "circ.inOut",
         })
-      
+        let infotl = gsap.timeline()
+        infotl.to("#sec6-info",{
+          duration: 0.5,
+          opacity: 0,
+          ease: "circ.inOut",
+        })
+        infotl.call(() =>{
+          sec6info.innerText = "Select a script"
+        })
+        infotl.to("#sec6-info",{
+          duration: 0,
+          y: "-20",
+        }, ">")
+        infotl.to("#sec6-info",{
+          duration: 0.5,
+          y: "0",
+          opacity: 1,
+          ease: "circ.inOut",
+        }, ">")
       })
 
     }
 
-    function mapAssign(mapPart, langPart, mapColor) {
-      mapAssignHelper(mapPart, langPart, mapColor)
-      mapAssignHelper(langPart, mapPart, mapColor)
+    function mapAssign(mapPart, langPart, mapColor, info) {
+      mapAssignHelper(mapPart, langPart, mapColor, info)
+      mapAssignHelper(langPart, mapPart, mapColor, info)
     }
 
-    mapAssign("#map-l11", "#map-m1", "#0D005C")
-    mapAssign("#map-l6", "#map-m9", "#0D005C")
-    mapAssign("#map-l12", "#map-m8", "#0D005C")
-    mapAssign("#map-l7", "#map-m2", "#0D005C")
-    mapAssign("#map-l7", "#map-m3", "#0D005C")
-    mapAssign("#map-l1", "#map-m4", "#0D005C")
-    mapAssign("#map-l5", "#map-m5", "#0D005C")
-    mapAssign("#map-l8", "#map-m6", "#0D005C")
-    mapAssign("#map-l4", "#map-m7", "#0D005C")
-    mapAssign("#map-l9", "#map-m10", "#0D005C")
+    mapAssign("#map-l11", "#map-m1", "#0D005C", "Name: Kulitan\nGroup: Kapampangan\nGeography: Central Luzon\nOther: Variety of baybayin")
+    mapAssign("#map-l6", "#map-m9", "#0D005C", "Name: Baybayin\nGroup: Katagalugan\nGeography: Tagalog Region")
+    mapAssign("#map-l12", "#map-m8", "#0D005C", "Name: Basahan\nGroup: Bicolanos\nGeography: Bicol")
+    mapAssign("#map-l7", "#map-m2", "#0D005C", "Name: Hanunó'o\nGroup: Mangyan\nGeography: Mindoro\nOther: Modern descendant of baybayin")
+    mapAssign("#map-l7", "#map-m3", "#0D005C", "Name: Buhid\nGroup: Mangyan\nGeography: Mindoro\nOther: Modern descendant of baybayin")
+    mapAssign("#map-l1", "#map-m4", "#0D005C", "Name: Tagbanwa\nGroup: Tagbanwa\nGeography: Central and Northern Palawan\nOther: Modern descendant of baybayin")
+    mapAssign("#map-l5", "#map-m5", "#0D005C", "Name: Jawi\nGroup: Tausug\nGeography: Greater Sulu\nOther: Variation of Alibata, there is said to be no evidence that Baybayin reached Mindanao")
+    mapAssign("#map-l8", "#map-m6", "#0D005C", "Name: Kirim\nGroup: Maguindanaon\nGeography: Maguindanao\nOther: Variation of Alibata, there is said to be no evidence that Baybayin reached Mindanao")
+    mapAssign("#map-l4", "#map-m7", "#0D005C", "Name: Badlit\nGroup: Visayan\nGeography: Visayas\nOther: Variety of baybayin")
+    mapAssign("#map-l9", "#map-m10", "#0D005C", "Name: Kurditan\nGroup: Ilocano\nGeography: Ilocos\nOther: Variety of baybayin")
     // document.querySelector("#map-l1").addEventListener("mouseover", () => {
     //   gsap.to("#map-l1",{
     //     duration: 1,

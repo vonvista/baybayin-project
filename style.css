@@ -276,15 +276,36 @@ img {
   width: auto;
   height: auto;
   background-color: #F1F1F1;
-  color: rgb(255, 255, 255);
+  color: black;
   overflow-y: hidden;
   overflow-x: hidden;
-  padding: 60px;
-  text-align: center;
-  padding-top: 40px;
-  flex-direction: row;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.sec6-left {
+  position: relative;
+  display: flex;
+  padding: 20px;
+  height: 450px;
+  width: 450px;
+  align-items: center;
+}
+
+.sec6-right {
+  position: relative;
+  display: flex;
+  padding: 20px;
+  height: 400px;
+  width: 300px;
   align-items: center;
   justify-content: center;
+}
+
+#sec6-info {
+  white-space: pre-wrap;
 }
 
 .footer {
