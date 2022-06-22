@@ -368,16 +368,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
       mapAssignHelper(langPart, mapPart, mapColor, info)
     }
 
-    mapAssign("#map-l11", "#map-m1", "#0D005C", "Name: Kulitan\nGroup: Kapampangan\nGeography: Central Luzon\nOther: Variety of baybayin")
+    mapAssign("#map-l11", "#map-m1", "#0D005C", "Name: Kulitan\nGroup: Kapampangan\nGeography: Central Luzon\nOther Info: Variety of baybayin")
     mapAssign("#map-l6", "#map-m9", "#0D005C", "Name: Baybayin\nGroup: Katagalugan\nGeography: Tagalog Region")
-    mapAssign("#map-l12", "#map-m8", "#0D005C", "Name: Basahan\nGroup: Bicolanos\nGeography: Bicol")
-    mapAssign("#map-l7", "#map-m2", "#0D005C", "Name: Hanunó'o\nGroup: Mangyan\nGeography: Mindoro\nOther: Modern descendant of baybayin")
-    mapAssign("#map-l7", "#map-m3", "#0D005C", "Name: Buhid\nGroup: Mangyan\nGeography: Mindoro\nOther: Modern descendant of baybayin")
-    mapAssign("#map-l1", "#map-m4", "#0D005C", "Name: Tagbanwa\nGroup: Tagbanwa\nGeography: Central and Northern Palawan\nOther: Modern descendant of baybayin")
-    mapAssign("#map-l5", "#map-m5", "#0D005C", "Name: Jawi\nGroup: Tausug\nGeography: Greater Sulu\nOther: Variation of Alibata, there is said to be no evidence that Baybayin reached Mindanao")
-    mapAssign("#map-l8", "#map-m6", "#0D005C", "Name: Kirim\nGroup: Maguindanaon\nGeography: Maguindanao\nOther: Variation of Alibata, there is said to be no evidence that Baybayin reached Mindanao")
-    mapAssign("#map-l4", "#map-m7", "#0D005C", "Name: Badlit\nGroup: Visayan\nGeography: Visayas\nOther: Variety of baybayin")
-    mapAssign("#map-l9", "#map-m10", "#0D005C", "Name: Kurditan\nGroup: Ilocano\nGeography: Ilocos\nOther: Variety of baybayin")
+    mapAssign("#map-l12", "#map-m8", "#0D005C", "Name: Basahan\nGroup: Bicolanos\nGeography: Bicol\nOther Info: Variety of baybayin")
+    mapAssign("#map-l7", "#map-m2", "#0D005C", "Name: Hanunó'o\nGroup: Mangyan\nGeography: Mindoro\nOther Info: Modern descendant of baybayin")
+    mapAssign("#map-l7", "#map-m3", "#0D005C", "Name: Buhid\nGroup: Mangyan\nGeography: Mindoro\nOther Info: Modern descendant of baybayin")
+    mapAssign("#map-l1", "#map-m4", "#0D005C", "Name: Tagbanwa\nGroup: Tagbanwa\nGeography: Central and Northern Palawan\nOther Info: Modern descendant of baybayin")
+    mapAssign("#map-l5", "#map-m5", "#0D005C", "Name: Jawi\nGroup: Tausug\nGeography: Greater Sulu\nOther Info: Variation of Alibata, there is said to be no evidence that Baybayin reached Mindanao")
+    mapAssign("#map-l8", "#map-m6", "#0D005C", "Name: Kirim\nGroup: Maguindanaon\nGeography: Maguindanao\nOther Info: Variation of Alibata, there is said to be no evidence that Baybayin reached Mindanao")
+    mapAssign("#map-l4", "#map-m7", "#0D005C", "Name: Badlit\nGroup: Visayan\nGeography: Visayas\nOther Info: Variety of baybayin")
+    mapAssign("#map-l9", "#map-m10", "#0D005C", "Name: Kurditan\nGroup: Ilocano\nGeography: Ilocos\nOther Info: Variety of baybayin")
     // document.querySelector("#map-l1").addEventListener("mouseover", () => {
     //   gsap.to("#map-l1",{
     //     duration: 1,
