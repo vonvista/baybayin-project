@@ -309,6 +309,27 @@ img {
   white-space: pre-wrap;
 }
 
+.sec7 {
+  position: relative;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: #F1F1F1;
+  color: black;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.sec7-image {
+  position: absolute;
+  height: 50vh;
+  
+}
+
 .footer {
   position: relative;
   display: flex;

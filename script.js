@@ -132,6 +132,38 @@ document.addEventListener("DOMContentLoaded", function(event) {
       ease: "circ.out"
     }, "<50%");
 
+    let sec7images = document.querySelectorAll(".sec7-image");
+    console.log(window.innerWidth)
+
+    function clamp(oldMin, oldMax, newMin, newMax, oldValue) {
+      newValue = (((oldValue - oldMin) * (newMax - newMin)) / (oldMax - oldMin)) + newMin
+      return newValue
+    }
+
+    for(let image of sec7images){
+      let offset = Math.random()
+      let minPos = -1* (image.width + image.width/2);
+      let maxPos = window.innerWidth
+      gsap.fromTo(image, 
+        {
+          x: `0`,
+          ease: "none",
+        },
+        {
+          duration: 5,
+          x: `1`,
+          ease: "none",
+          repeat: -1,
+          modifiers: {
+            x: gsap.utils.unitize(function(x) {
+              return parseFloat(clamp(0,1,minPos, maxPos, (x + offset) % 1))
+            })
+          },
+        }
+      )
+    }
+    
+
     //test 
 
     intro.play();
