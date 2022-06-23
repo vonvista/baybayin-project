@@ -141,26 +141,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
 
     for(let image of sec7images){
-      let offset = Math.random()
-      let minPos = -1* (image.width + image.width/2);
-      let maxPos = window.innerWidth
-      gsap.fromTo(image, 
-        {
-          x: `0`,
-          ease: "none",
+      gsap.to(image, {
+        x: `+=${window.innerWidth + image.width}`,
+        duration: "30",
+        modifiers: {
+          x: gsap.utils.unitize(function(x) {
+            return (x % (window.innerWidth + image.width)) - image.width
+          })
         },
-        {
-          duration: 5,
-          x: `1`,
-          ease: "none",
-          repeat: -1,
-          modifiers: {
-            x: gsap.utils.unitize(function(x) {
-              return parseFloat(clamp(0,1,minPos, maxPos, (x + offset) % 1))
-            })
-          },
-        }
-      )
+        repeat: -1,
+        ease: "none"
+      })
     }
     
 
