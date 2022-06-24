@@ -312,23 +312,33 @@ img {
 .sec7 {
   position: relative;
   display: flex;
-  width: 100vw;
-  height: 100vh;
-  background-color: #F1F1F1;
+  width: auto;
+  height: auto;
+  background-color:#F3BE00;
   color: black;
   overflow-y: hidden;
   overflow-x: hidden;
   padding-top: 30px;
-  padding-bottom: 30px;
+  padding-bottom: 60px;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .sec7-image {
-  position: absolute;
-  left: 0px;
-  height: 50vh;
-  
+  position: relative;
+  /* left: 0px; */
+  width: 100vw;
+  clip-path: polygon(0 10%, 100% 0%, 100% 95%, 0% 100%);
+}
+
+.sec7-text {
+  position: relative;
+  margin: 60px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 20px;
+  /* background-color: white; */
+  clip-path: polygon(0 10%, 100% 0%, 100% 90%, 0% 100%);
 }
 
 .footer {

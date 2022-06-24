@@ -140,20 +140,32 @@ document.addEventListener("DOMContentLoaded", function(event) {
       return newValue
     }
 
-    for(let image of sec7images){
-      gsap.to(image, {
-        x: `+=${window.innerWidth + image.width}`,
-        duration: "30",
-        modifiers: {
-          x: gsap.utils.unitize(function(x) {
-            return (x % (window.innerWidth + image.width)) - image.width
-          })
-        },
-        repeat: -1,
-        ease: "none"
-      })
-    }
-    
+    // for(let image of sec7images){
+    //   gsap.set(image,{
+    //     x: gsap.utils.random(0, 100),
+    //     y: gsap.utils.random(0, 100),
+    //   }
+
+    //   )
+    //   gsap.to(image, {
+    //     x: `+=${window.innerWidth + image.width}`,
+    //     duration: "30",
+    //     modifiers: {
+    //       x: gsap.utils.unitize(function(x) {
+    //         return (x % (window.innerWidth + image.width)) - image.width
+    //       })
+    //     },
+    //     repeat: -1,
+    //     ease: "none"
+    //   })
+    // }
+
+    let sec7image = gsap.timeline({paused:true})
+    sec7image.from(".sec7-image", { 
+      duration: 2, 
+      "clip-path": "polygon(0% 60%, 100% 40%, 100% 40%, 0% 60%)",
+      ease: "circ.out",
+    });
 
     //test 
 
@@ -455,6 +467,23 @@ document.addEventListener("DOMContentLoaded", function(event) {
       onLeaveBack: () => {
         sec3cross.timeScale(5.0).reverse();
         //console.log("lb");
+      },
+      markers: false
+    
+    })
+
+    ScrollTrigger.create({
+    
+      trigger: ".sec7-image",
+      start: "10% 50%",
+      end: "90% 50%",
+      //toggleActions: "play reverse play reverse",
+      onEnter: () => {
+        sec7image.timeScale(1.0).play();
+        //console.log("e");
+      },
+      onLeaveBack: () => {
+        sec7image.timeScale(5.0).reverse();
       },
       markers: false
     
