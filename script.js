@@ -471,16 +471,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
       document.querySelector(`#sec8-sym${i}`).addEventListener("mouseover", () => {
         gsap.to(`#sec8-t${i}`,{
           color: "#990000",
+          "font-weight": "bold",
         })
         gsap.to(`#sec8-sym${i}`,{
-          color: "#990000",
-          filter: "brightness(1) sepia(1) hue-rotate(180deg) saturate(5)",
-          duration: 2,
+          fill: "#990000",
         })
       })
       document.querySelector(`#sec8-sym${i}`).addEventListener("mouseleave", () => {
         gsap.to(`#sec8-t${i}`,{
-          color: "black"
+          color: "black",
+          "font-weight": "normal",
+        })
+        gsap.to(`#sec8-sym${i}`,{
+          fill: "black",
         })
       })
     }
