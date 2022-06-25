@@ -447,6 +447,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     // }
 
+    gsap.to(".sec7-border",{
+      duration: 20,
+      backgroundPositionX: "random(-20,20)",
+      ease: "sine.inOut",
+      repeatRefresh: true,
+      repeat: -1,
+    })
+
     gsap.to(".sec8-symbols",{
       duration: 2,
       x: "random(-10,10)",
@@ -457,23 +465,62 @@ document.addEventListener("DOMContentLoaded", function(event) {
       repeatRefresh: true
     })
 
-    let sec9 = document.getElementsByClassName("sec9")[0];
-    let sec9height = sec9.clientHeight;
-    console.log(sec9height)
+    
+    for(let i = 0; i <= 2; i++){
+      console.log(`#sec8-t${i}`)
+      document.querySelector(`#sec8-sym${i}`).addEventListener("mouseover", () => {
+        gsap.to(`#sec8-t${i}`,{
+          color: "#990000",
+        })
+        gsap.to(`#sec8-sym${i}`,{
+          color: "#990000",
+          filter: "brightness(1) sepia(1) hue-rotate(180deg) saturate(5)",
+          duration: 2,
+        })
+      })
+      document.querySelector(`#sec8-sym${i}`).addEventListener("mouseleave", () => {
+        gsap.to(`#sec8-t${i}`,{
+          color: "black"
+        })
+      })
+    }
 
-    let sec9tl = gsap.timeline({paused:true})
+    let sec9 = document.getElementsByClassName("sec9");
+    
 
-    sec9tl.from(".sec9-content", {
-      duration: 1,
-      text: "",
-      ease: "power1.inOut",
-      stagger: {
-        from: 0,
-        axis: "x",
-        amount: 1.5
-      }
-    });
-    sec9.style.height = sec9height;
+    for(let element of sec9){
+      var computedStyle = getComputedStyle(element);
+      let sec9height = element.clientHeight - parseFloat(computedStyle.paddingTop) - parseFloat(computedStyle.paddingBottom)
+      let sec9tl = gsap.timeline({paused:true})
+      sec9tl.from(element.querySelectorAll(".sec9-content"), {
+        duration: 1,
+        text: "",
+        ease: "power1.inOut",
+        stagger: {
+          from: 0,
+          axis: "x",
+          amount: 1.5
+        },
+      });
+      ScrollTrigger.create({
+    
+        trigger: element,
+        start: "10% 50%",
+        end: "90% 50%",
+        //toggleActions: "play reverse play reverse",
+        onEnter: () => {
+          sec9tl.timeScale(1.0).play();
+          //console.log("e");
+        },
+        onLeaveBack: () => {
+          sec9tl.timeScale(5.0).reverse();
+        },
+        markers: false
+      
+      })
+      console.log(sec9height)
+      element.style.height = `${sec9height}px`;
+    }
 
     gsap.to(".scroller-footer", {
       backgroundPositionX: "+=853px",
@@ -517,23 +564,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         //console.log("lb");
       },
       markers: false
-    
-    })
-
-    ScrollTrigger.create({
-    
-      trigger: ".sec9",
-      start: "10% 50%",
-      end: "90% 50%",
-      //toggleActions: "play reverse play reverse",
-      onEnter: () => {
-        sec9tl.timeScale(1.0).play();
-        //console.log("e");
-      },
-      onLeaveBack: () => {
-        sec9tl.timeScale(5.0).reverse();
-      },
-      markers: true
     
     })
 
