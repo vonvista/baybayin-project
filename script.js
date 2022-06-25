@@ -95,6 +95,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // you could also use addEventListener() instead
   window.onload = function() {
 
+    let sec1 = document.getElementsByClassName("sec1")[0];
+    let sec1ScrollerHeight = 103; 
+
+    const scrollerElement = document.createElement("div");
+    scrollerElement.className = "scroller"
+
+    for(let i = 0; i < sec1.clientHeight; i += sec1ScrollerHeight){
+      // sec1.appendChild(scrollerElement)
+      // console.log(i)
+      sec1.insertAdjacentHTML('afterbegin', ' <div class="scroller"></div>');
+    }
+    sec1.insertAdjacentHTML('afterbegin', ' <div class="scroller"></div>');
+
+    console.log(sec1.clientHeight);
     let scrolls = document.querySelectorAll(".scroller");
     let offsetY = 0;
     for (let scroller of scrolls) {
@@ -427,6 +441,40 @@ document.addEventListener("DOMContentLoaded", function(event) {
     
     // })
 
+
+    // let sec8symbols = querySelectorAll(".sec8-symbols");
+    // for(let symbol of sec8symbols){
+
+    // }
+
+    gsap.to(".sec8-symbols",{
+      duration: 2,
+      x: "random(-10,10)",
+      y: "random(-10,10)",
+      rotation: "random(-10,10)",
+      repeat: -1,
+      ease: "sine.inOut",
+      repeatRefresh: true
+    })
+
+    let sec9 = document.getElementsByClassName("sec9")[0];
+    let sec9height = sec9.clientHeight;
+    console.log(sec9height)
+
+    let sec9tl = gsap.timeline({paused:true})
+
+    sec9tl.from(".sec9-content", {
+      duration: 1,
+      text: "",
+      ease: "power1.inOut",
+      stagger: {
+        from: 0,
+        axis: "x",
+        amount: 1.5
+      }
+    });
+    sec9.style.height = sec9height;
+
     gsap.to(".scroller-footer", {
       backgroundPositionX: "+=853px",
       duration: 40,
@@ -469,6 +517,23 @@ document.addEventListener("DOMContentLoaded", function(event) {
         //console.log("lb");
       },
       markers: false
+    
+    })
+
+    ScrollTrigger.create({
+    
+      trigger: ".sec9",
+      start: "10% 50%",
+      end: "90% 50%",
+      //toggleActions: "play reverse play reverse",
+      onEnter: () => {
+        sec9tl.timeScale(1.0).play();
+        //console.log("e");
+      },
+      onLeaveBack: () => {
+        sec9tl.timeScale(5.0).reverse();
+      },
+      markers: true
     
     })
 
