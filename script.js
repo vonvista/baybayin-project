@@ -448,7 +448,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // }
 
     gsap.to(".sec7-border",{
-      duration: 20,
+      duration: 5,
       backgroundPositionX: "random(-20,20)",
       ease: "sine.inOut",
       repeatRefresh: true,
@@ -524,6 +524,57 @@ document.addEventListener("DOMContentLoaded", function(event) {
       console.log(sec9height)
       element.style.height = `${sec9height}px`;
     }
+
+    let sec10containers = document.querySelectorAll(".sec10-container");
+    for(let element of sec10containers){
+      element.addEventListener("mouseenter", () => {
+        gsap.fromTo(element.querySelector(".sec10-bg"), {
+          "clip-path": "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"
+        },
+        {
+          "clip-path": "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+          duration: 0.5,
+          ease: "circ.out"
+        })
+        gsap.to(element, {
+          color: "white",
+          duration: 0.5,
+          ease: "circ.out"
+        })
+        gsap.fromTo(element.querySelector(".sec10-circle"), 
+        {
+          rotation: 0,
+          x: "50%",
+          y: "-50%",
+        },
+        {
+          rotation: 360,
+          duration: 0.5,
+          ease: "power1.inOut"
+        })
+      })
+      element.addEventListener("mouseleave", () => {
+        gsap.to(element.querySelector(".sec10-bg"), {
+          "clip-path": "polygon(100% 0%, 100% 0%, 100% 100%, 100% 100%)",
+          duration: 0.5,
+          ease: "circ.out"
+        })
+        gsap.to(element, {
+          color: "black",
+          duration: 0.5,
+          ease: "circ.out"
+        })
+      })
+    }
+    gsap.set(".sec10-circle-outer", {
+      transformOrigin: "50% 50%"
+    })
+    gsap.to(".sec10-circle-outer", {
+      rotation: 360,
+      duration: 20,
+      repeat: -1,
+      ease: "none",
+    })
 
     gsap.to(".scroller-footer", {
       backgroundPositionX: "+=853px",
